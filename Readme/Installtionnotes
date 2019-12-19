@@ -1,0 +1,8 @@
+# To get rtmidi runing it is necessary to install libasound2-dev
+# since the module use asound includes
+# I used hxxp://spotlightkid.github.io/python-rtmidi/installation.html#requirements
+# hxxp has to be replaced
+# follow linux guide
+# On linux libasound2-dev
+# libjack-jackd2-dev
+# install package

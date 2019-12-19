@@ -1,0 +1,7 @@
+#here are some Linuxcode to Install needed Libraries and Modules
+
+sudo apt-get install libasound2-dev libjack-jackd2-dev
+sudo apt-get install python3-pip
+pip3 install python-rtmidi
+sudo apt-get install qttools5-dev-tools qtchooser pyqt5-dev-tools
+

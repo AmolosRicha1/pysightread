@@ -1,0 +1,4 @@
+#! /bin/sh
+
+pyuic5 -x gui.ui -o gui.py
+pyrcc5 -o Resource_rc.py Resource.qrc
