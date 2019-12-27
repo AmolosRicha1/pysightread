@@ -6,3 +6,5 @@ For this task I wrote a python3 programm which uses pyqt5 as gui. I modelled a s
 Here is an example of the Programm and how it looks like at the moment
 
 ![Screenshot](example.png)
+
+To start the Program just do python3 MainPrg.py. But you will need all the required Modules and packages. Please view the Readme-Folder for additional information.
