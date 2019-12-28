@@ -43,7 +43,7 @@
      <string notr="true">color: rgb(186, 189, 182);</string>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Stop</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
@@ -59,7 +59,7 @@
      <string notr="true">color: rgb(186, 189, 182);</string>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Start</string>
     </property>
    </widget>
   </widget>
@@ -83,11 +83,11 @@
    <property name="locale">
     <locale language="English" country="UnitedStates"/>
    </property>
-   <widget class="QMenu" name="menuDatai">
+   <widget class="QMenu" name="menuDatei">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionEinstellungen"/>
+    <addaction name="ExitAction"/>
     <addaction name="separator"/>
     <addaction name="separator"/>
    </widget>
@@ -101,7 +101,7 @@
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionVersion"/>
+    <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuSetting">
@@ -111,12 +111,12 @@
     <addaction name="actionKey_signature"/>
     <addaction name="actionChange_tempo"/>
    </widget>
-   <addaction name="menuDatai"/>
+   <addaction name="menuDatei"/>
    <addaction name="menuSetting"/>
    <addaction name="menuHelp_2"/>
    <addaction name="menuHelp_3"/>
   </widget>
-  <action name="actionEinstellungen">
+  <action name="ExitAction">
    <property name="text">
     <string>Exit</string>
    </property>

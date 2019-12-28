@@ -2,3 +2,5 @@
 #this is just a small script to convert the files from designer.
 pyuic5 -x gui.ui -o gui.py
 pyrcc5 -o Resource_rc.py Resource.qrc
+pyuic5 -x About.ui -o About.py
+pyuic5 -x Keysig.ui -o Keysig.py

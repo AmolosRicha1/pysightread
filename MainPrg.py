@@ -9,11 +9,14 @@ from PyQt5.QtCore import *
 from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtGui import QPixmap
 import sys
-from gui import Ui_MainWindow
 import time
+from gui import Ui_MainWindow
+from About import Ui_Dialog
+from Keysig import Ui_Dialogkeysig
+from Keysign import CMaj
 
 count=0
-RandNote=random.randrange(50,70,1)
+RandNote=random.choice(CMaj)
 
 #start RT Midi input Thread
 class ThreadClass(QThread,Ui_MainWindow ):
@@ -52,6 +55,17 @@ class Threadclassthree(QThread,Ui_MainWindow):
 def msgButtonClick():
     print("Button clicked is:")
 
+
+class Dialog(QDialog, Ui_Dialog):
+    def __init__(self, parent=None):
+        QDialog.__init__(self, parent)
+        self.setupUi(self)
+
+class Dialogkeysig(QDialog, Ui_Dialogkeysig):
+    def __init__(self, parent=None):
+        QDialog.__init__(self, parent)
+        self.setupUi(self)
+
 #initializie Ui Communication with classes
 class Logic(QMainWindow, Ui_MainWindow):
     #defined variable for exchanging Notenumber
@@ -73,10 +87,27 @@ class Logic(QMainWindow, Ui_MainWindow):
         self.threadclass.updatedthree.connect(self.updateTextthree)
         self.threadclass.start()
 
+        self.ExitAction.triggered.connect(self.printTest)
+        self.actionAbout.triggered.connect(self.openDialog)
+        self.actionKey_signature.triggered.connect(self.openDialogKeysig)
+        self.actionminimize.triggered.connect(self.showMinimized)
+
+    def openDialog(self):
+        d=Dialog(self)
+        d.show()
+
+    def openDialogKeysig(self):
+        d=Dialogkeysig(self)
+        d.show()
+
+
+    def printTest(self):
+        self.close()
     def updateTexttwoalt( self):
         #Variables counting the Qtimer
         global count
         global RandNote
+
 
         #change Position of the note
         MyLabeltwo=QLabel(self)
@@ -94,7 +125,7 @@ class Logic(QMainWindow, Ui_MainWindow):
         print("self.a" + str(self.a))
         if str(self.a)==str(RandNote):
             DefiLabel.hide()
-            RandNote=random.randrange(50,70,1)
+            RandNote=random.choice(CMaj)
             RandPos=200-8.5*(int(RandNote)-60)
             Disptwo=502
             DefiLabel.move(Disptwo,RandPos)
@@ -106,7 +137,7 @@ class Logic(QMainWindow, Ui_MainWindow):
             DefiLabel.show()
         else:
             count=0
-            RandNote=random.randrange(50,70,1)
+            RandNote=random.choice(CMaj)
             DefiLabel.hide()
 
 
@@ -129,17 +160,17 @@ class Logic(QMainWindow, Ui_MainWindow):
             self.findChild(QLabel, "specific").show()
         
 #Does something when closed
-    def closeEvent(self, event):
-        msgBox = QtWidgets.QMessageBox()
-        msgBox.setIcon(QtWidgets.QMessageBox.Information)
-        msgBox.setText("Message box pop up window")
-        msgBox.setWindowTitle("QMessageBox Example")
-        msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
-        msgBox.buttonClicked.connect(msgButtonClick)
-        returnValue = msgBox.exec()
+    #def closeEvent(self, event):
+    #    msgBox = QtWidgets.QMessageBox()
+    #    msgBox.setIcon(QtWidgets.QMessageBox.Information)
+    #    msgBox.setText("Message box pop up window")
+    #    msgBox.setWindowTitle("QMessageBox Example")
+    #    msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+    #    msgBox.buttonClicked.connect(msgButtonClick)
+    #    returnValue = msgBox.exec()
         
-        if returnValue == QtWidgets.QMessageBox.Ok:
-            print('OK clicked')
+    #    if returnValue == QtWidgets.QMessageBox.Ok:
+    #        print('OK clicked')
             
 
 #main Part
